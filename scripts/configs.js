@@ -1,6 +1,5 @@
 
 const path = require('path')
-
 const eslint = require('rollup-plugin-eslint');
 const node = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
@@ -19,28 +18,6 @@ const banner =
   ' */'
 
 const resolve = _path => path.resolve(__dirname, '../', _path)
-
-module.exports = [
-  // browser dev
-  {
-    file: resolve('dist/beaf-ui.js'),
-    format: 'umd',
-    env: 'development'
-  },
-  {
-    file: resolve('dist/beaf-ui.min.js'),
-    format: 'umd',
-    env: 'production'
-  },
-  {
-    file: resolve('dist/beaf-ui.common.js'),
-    format: 'cjs'
-  },
-  {
-    file: resolve('dist/beaf-ui.esm.js'),
-    format: 'es'
-  }
-].map(genConfig)
 
 function genConfig (opts) {
   const config = {
@@ -81,7 +58,30 @@ function genConfig (opts) {
       'process.env.NODE_ENV': JSON.stringify(opts.env)
     }))
   }
-  
+
 
   return config
 }
+
+module.exports = [
+  // browser dev
+  {
+    file: resolve('dist/beaf-ui.js'),
+    format: 'umd',
+    env: 'development'
+  },
+  {
+    file: resolve('dist/beaf-ui.min.js'),
+    format: 'umd',
+    env: 'production'
+  },
+  {
+    file: resolve('dist/beaf-ui.common.js'),
+    format: 'cjs'
+  },
+  {
+    file: resolve('dist/beaf-ui.esm.js'),
+    format: 'es'
+  }
+].map(genConfig)
+
