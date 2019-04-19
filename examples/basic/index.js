@@ -5,7 +5,6 @@ import App from './app.vue'
 
 import beafUI from 'beaf-ui'
  Vue.use(beafUI)
-console.log(beafUI)
 new Vue({
     el:'#app',
     store:store,

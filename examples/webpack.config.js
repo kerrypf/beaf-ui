@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 const VuePlugin = require('vue-loader/lib/plugin')
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   // Expose __dirname to allow automatically setting basename.
