@@ -1,0 +1,106 @@
+
+.AiRightFlotage.shortcut-box {
+    position: fixed;
+    bottom: 210px;
+    right: 0;
+    // -bottom: 60px;
+    font-size: 14px;
+    z-index: 1999;
+    .scroll-top-fade-enter,
+    .scroll-top-fade-leave-active {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    .pevNone{
+        pointer-events:none;
+    }
+    .icon,.icon-ai {
+      // margin: 0;
+      // width: 20px;
+      // height: 100%;
+      line-height:40px;
+      font-size:20px;
+      color:rgb(149, 149, 149);
+    }
+    .scrolltop {
+        position: absolute;
+        bottom: -60px;
+        transition: 0.3s;
+        // .icon { color: #666; }
+        // &:hover {
+        //   .icon { color: #0097fa; }
+        // }
+    }
+  .bangzhu-fankui, .scrolltop {
+      text-align: center;
+      background-color: #fff;
+      border-radius: 4px 0 0 4px;
+      box-shadow: -2px 0 10px #e3e3e3;
+      &:hover {
+        .shortcut-line { border-color: #fff; }
+      }
+  }
+  .shortcut-list, .scrolltop {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      cursor: pointer;
+  }
+  .shortcut-list {
+      > span {
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        display: none;
+      }
+  }
+  .shortcut-list:hover, .shortcut-list.active {
+      color: #fff;
+      background-color: #0097fa;
+      > .icon { display: none; }
+      > span { display: inline-block; }
+  }
+  .shortcut-list:first-child { border-radius: 4px 0 0 0; }
+  .shortcut-list:last-child {
+      border-radius: 0 0 0 4px;
+      > .icon { border-bottom: none; }
+  }
+  .shortcut-line {
+      margin: 0 5px 0 7px;
+      height: 1px;
+      border-bottom: 1px solid #e3e3e3;
+  }
+  .shortcut-line.active { border-color: #fff; }
+  .question-box {
+      padding: 10px 15px;
+      font-size: 12px;
+      .question-list {
+        white-space:nowrap;
+        padding-right:30px;
+        > a {
+            color:#2babf6;
+            line-height: 25px;
+            margin-left: 5px;
+            &:hover{
+                border-bottom:1px solid #2babf6;
+            }
+        }
+      }
+      .el-icon-close {
+        cursor:pointer;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: #959595;
+        &:hover { color: #0097fa; }
+      }
+  }
+  .dui-popover {
+      position: absolute;
+      font-size: 14px;
+      color: #475669;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+      border-radius: 4px;
+  }
+}

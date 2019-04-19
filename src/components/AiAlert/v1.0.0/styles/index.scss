@@ -1,0 +1,73 @@
+/******************************** message-reset ********************************/
+div.el-message {
+	box-shadow:0 2px 4px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.04);
+ 	padding: 0;
+	top: 36px;
+	height:auto;
+	min-height: 50px;
+	border: none;
+	min-width: 250px;
+	max-width: 1200px;
+	border: 1px solid #e7e7e7;
+	background:#fff;
+	border-radius:0;
+  	p {
+	  	margin: 0;
+	  	padding: 0 20px 0 70px;
+	  	color:#8391a5;
+	  	font-size:14px;
+	  	line-height: 1.5;
+	 //  	display: -webkit-box; 
+		// -webkit-box-orient: vertical;    
+		// -webkit-line-clamp: 2;    
+		// overflow: hidden;
+	}
+	.iconfont {
+		position:absolute;
+		top:0;
+		bottom:0;
+	  	padding: 0 10px;
+	  	width:50px;
+	  	box-sizing:border-box;
+	  	min-height: 50px;
+	  	height:auto;
+	  	// line-height: 50px;
+	  	color: #fff;
+	  	font-size: 30px;
+	  	// @extend %flex;
+	  	// @extend %flex-align-center;
+	  	&::before{
+			position:absolute;
+			top:50%;
+			transform:translateY(-50%);
+	  	}
+	}
+	.el-message__closeBtn {
+	  top: 16px;
+	  right: 10px;
+	}
+	&.ai-message-info{
+		border-color: #5fb9f9;
+		.iconfont{
+			background-color: #48aaf0;
+		}
+	}
+	&.ai-message-warning{
+		border-color: #ffb700;
+		.iconfont{
+			background-color: #ffb700;
+		}
+	}
+	&.ai-message-success{
+		border-color: #37d0a1;
+		.iconfont{
+			background-color: #00c286; 
+		}
+	}
+	&.ai-message-error{
+		border-color: #ff8080;
+		.iconfont{
+			background-color: #fd6e6e; 
+		}
+	}
+}

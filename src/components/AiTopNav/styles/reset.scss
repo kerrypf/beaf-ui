@@ -1,0 +1,17 @@
+#TopNav{
+	.member_management.el-badge{
+		vertical-align:top;
+		.el-badge__content{
+			top:10px;
+			right:5px;
+		}
+	}
+	#icon-search > path{
+		fill:inherit;
+	}
+	.icon-search{
+		color: #0097fa;
+		fill: currentColor;
+		overflow: hidden;
+	}
+}

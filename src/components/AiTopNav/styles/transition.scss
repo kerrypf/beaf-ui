@@ -1,0 +1,13 @@
+#TopNav{
+	.liner_scale-enter-active {
+	  	transition: all .3s ease;
+
+	}
+	.liner_scale-leave-active {
+	  	transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+	}
+	.liner_scale-enter, .liner_scale-leave-to {
+	  	// right:-2000px;
+	  	transform:translateX(100%);
+	 }
+}
