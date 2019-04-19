@@ -4,7 +4,7 @@ import router from '../router'
 import App from './app.vue'
 
 import beafUI from 'beaf-ui'
- Vue.use(beafUI)
+Vue.use(beafUI)
 new Vue({
     el:'#app',
     store:store,
