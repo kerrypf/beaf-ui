@@ -1,13 +1,11 @@
-
-const path = require('path')
-const eslint = require('rollup-plugin-eslint');
-const node = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const buble = require('rollup-plugin-buble')
-const replace = require('rollup-plugin-replace');
-const flow = require('rollup-plugin-flow-no-whitespace')
-const vue = require('rollup-plugin-vue')
-const embedCss = require('rollup-plugin-embed-css')
+import path from "path";
+import node from "rollup-plugin-node-resolve"
+import commonjs from "rollup-plugin-commonjs"
+import buble from "rollup-plugin-buble"
+import replace from "rollup-plugin-replace"
+import flow from "rollup-plugin-flow-no-whitespace"
+import vue from "rollup-plugin-vue"
+import embedCss from "rollup-plugin-embed-css"
 
 const version = process.env.VERSION || require('../package.json').version
 const banner =
@@ -63,25 +61,27 @@ function genConfig (opts) {
   return config
 }
 
-module.exports = [
-  // browser dev
-  {
-    file: resolve('dist/beaf-ui.js'),
-    format: 'umd',
-    env: 'development'
-  },
+export const umdDev = genConfig({
+  file: resolve('dist/beaf-ui.js'),
+  format: 'umd',
+  env: 'development'
+});
+
+export const umdProd = genConfig(
   {
     file: resolve('dist/beaf-ui.min.js'),
     format: 'umd',
     env: 'production'
-  },
-  {
-    file: resolve('dist/beaf-ui.common.js'),
-    format: 'cjs'
-  },
-  {
-    file: resolve('dist/beaf-ui.esm.js'),
-    format: 'es'
-  }
-].map(genConfig)
+  })
+
+export const cjs = genConfig({
+  file: resolve('dist/beaf-ui.common.js'),
+  format: 'cjs'
+})
+
+export const es = genConfig({
+  file: resolve('dist/beaf-ui.esm.js'),
+  format: 'es'
+})
+
 

@@ -1,7 +1,3 @@
-import  {  sayHi } from "./hhh"
-//import configs from "./configs"
-const { input, output } = require('./configs')[0]
+import { umdDev } from "./configs"
 
-sayHi()
-
-module.exports = Object.assign({}, input, { output })
+module.exports = { ...umdDev.input , output: umdDev.output }
