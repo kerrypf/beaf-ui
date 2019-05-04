@@ -3,10 +3,14 @@ const config = require('./webpack.prod.config');
 const webpack = require('webpack');
 const chalk = require('chalk');
 const fs = require('fs-extra');
+const path = require('path')
 
 console.log('building for production...')
 
-fs.emptyDirSync(path.resolve(process.cwd(), "docs")));
+if (!fs.existsSync('docs')) {
+    fs.mkdirSync('docs')
+}
+fs.emptyDirSync(path.resolve(process.cwd(), "docs"))
 webpack(config, function (err, stats) {
     
     if (err) {
