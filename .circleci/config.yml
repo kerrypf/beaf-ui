@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
 
-      - image: circleci/node
+      - image: circleci/node:10
 
     working_directory: ~/repo
 
@@ -27,7 +27,7 @@ jobs:
       # run tests!
       # - run: yarn run build
 
-      - run: mv examples beaf-ui
+      - run: mv docs beaf-ui
 
       - persist_to_workspace:
           root: ~/repo
@@ -54,10 +54,10 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build
+      - docs
       - deploy:
           requires:
-            - build
+            - docs
           filters:
             branches:
               only: master

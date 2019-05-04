@@ -69,7 +69,7 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.esm.js',
-      'beaf-ui': path.resolve(process.cwd(), 'dist')
+      'beaf-ui': path.resolve(process.cwd(), 'dist/beaf-ui.common.js')
     }
   },
 

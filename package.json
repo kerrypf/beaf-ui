@@ -26,8 +26,8 @@
     "release": "bash scripts/release.sh"
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
+    "**/*.{js,json,md,scss,vue}": [
+      "prettier --write",
       "git add"
     ]
   },
