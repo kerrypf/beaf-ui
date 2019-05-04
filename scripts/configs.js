@@ -4,11 +4,15 @@ const path = require('path')
 const eslint = require('rollup-plugin-eslint');
 const node = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-const buble = require('rollup-plugin-buble')
+const babel = require('rollup-plugin-babel')
 const replace = require('rollup-plugin-replace');
+const alias = require('rollup-plugin-alias')
 const flow = require('rollup-plugin-flow-no-whitespace')
 const vue = require('rollup-plugin-vue')
 const embedCss = require('rollup-plugin-embed-css')
+const postcss  = require('rollup-plugin-postcss')
+const autoprefixer  = require('autoprefixer')
+const cssnano  = require('cssnano')
 
 const version = process.env.VERSION || require('../package.json').version
 const banner =
@@ -50,19 +54,23 @@ function genConfig (opts) {
         flow(),
         vue(),
         node(),
-        embedCss(),
+        // embedCss(),
         commonjs(),
         replace({
           __VERSION__: version
         }),
-        buble({
-          objectAssign: 'Object.assign',
+        // buble({
+        //   objectAssign: 'Object.assign',
+        // })
+        postcss({
+            plugins: [autoprefixer, cssnano],
+            extract: 'dist/css/bundle.css' // 输出路径
+        }),
+        babel({
+          exclude: "node_modules/**",
+          externalHelpers: true,
+          runtimeHelpers: true
         })
-        // babel({
-        //   exclude: "node_modules/**",
-        //   externalHelpers: true,
-        //   runtimeHelpers: true
-        // }),
       ]
     },
     output: {
@@ -72,7 +80,9 @@ function genConfig (opts) {
       name: 'BeafUI'
     },
     external: [
-      'vue'
+      'vue',
+      'element-ui',
+      'vue-codemirror'
     ]
   }
 

@@ -1,4 +1,5 @@
 .DS_Store
+docs
 node_modules
 TODOs.md
 test/e2e/reports
@@ -7,6 +8,5 @@ selenium-debug.log
 dist/*.gz
 dist/*.map
 explorations
-docs/.vuepress/dist
 yarn-error.log
 .vscode/settings.json

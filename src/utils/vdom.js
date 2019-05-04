@@ -1,9 +1,9 @@
-import { hasOwn } from './util';
+import { hasOwn } from './util.js';
 
-export function isVNode(node) {
+export const isVNode = (node)=> {
   return node !== null && typeof node === 'object' && hasOwn(node, 'componentOptions');
 };
 
-export function getFirstComponentChild(children) {
+export const getFirstComponentChild = (children) => {
   return children && children.filter(c => c && c.tag)[0];
 };

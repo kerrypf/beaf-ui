@@ -15,36 +15,58 @@ function build (builds) {
   let built = 0
   const total = builds.length
   const next = () => {
-    buildEntry(builds[built]).then(() => {
-      built++
-      if (built < total) {
-        next()
-      }
-    }).catch(logError)
+    buildEntry(builds[built])
+    // buildEntry(builds[built]).then(() => {
+    //   built++
+    //   if (built < total) {
+    //     next()
+    //   }
+    // }).catch(logError)
   }
 
   next()
 }
 
-function buildEntry ({ input, output }) {
+async function buildEntry ({ input, output }) {
+  console.log(input)
   const isProd = /min\.js$/.test(output.file)
-  return rollup.rollup(input)
-    .then(bundle => bundle.generate(output))
-    .then(({ code }) => {
-      if (isProd) {
-        const minified = uglify.minify(code, {
-          output: {
-            preamble: output.banner,
-            /* eslint-disable camelcase */
-            ascii_only: true
-            /* eslint-enable camelcase */
-          }
-        }).code
-        return write(output.file, minified, true)
-      } else {
-        return write(output.file, code)
-      }
-    })
+  const bundle = await rollup.rollup(input)
+  console.log(Object.keys(bundle))
+  // generate code and a sourcemap
+  // const data = await bundle.generate(output);
+  // const code = data.output
+  // if (isProd) {
+  //   const minified = uglify.minify(code, {
+  //     output: {
+  //       preamble: output.banner,
+  //       /* eslint-disable camelcase */
+  //       ascii_only: true
+  //       /* eslint-enable camelcase */
+  //     }
+  //   }).code
+  //   console.log(minified)
+  //   return write(output.file, minified, true)
+  // } else {
+  //   return write(output.file, code)
+  // }
+
+  // return rollup.rollup(input)
+  //   .then(bundle => bundle.generate(output))
+  //   .then(({ code }) => {
+  //     if (isProd) {
+  //       const minified = uglify.minify(code, {
+  //         output: {
+  //           preamble: output.banner,
+  //           /* eslint-disable camelcase */
+  //           ascii_only: true
+  //           /* eslint-enable camelcase */
+  //         }
+  //       }).code
+  //       return write(output.file, minified, true)
+  //     } else {
+  //       return write(output.file, code)
+  //     }
+  //   })
 }
 
 function write (dest, code, zip) {

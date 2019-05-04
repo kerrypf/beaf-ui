@@ -3,7 +3,7 @@
         <div>
             <div class="jsonschema-defined">
                 <codemirror ref="myCm"
-                    :value="code" 
+                    :value="code"
                     :options="cmOptions"
                     @ready="onCmReady"
                     @focus="onCmFocus"
@@ -24,11 +24,9 @@ export default {
             code: 'const a = 10',
             cmOptions: {
                 // codemirror options
-                tabSize: 4,
                 mode: 'text/javascript',
-                theme: 'base16-dark',
-                lineNumbers: true,
-                line: true,
+                theme: 'base16-light',
+                readOnly: false
                 // more codemirror options, 更多 codemirror 的高级配置...
             }
         }

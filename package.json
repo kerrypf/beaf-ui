@@ -7,11 +7,9 @@
   "unpkg": "dist/beaf-ui.js",
   "jsdelivr": "dist/beaf-ui.js",
   "sideEffects": false,
-  "typings": "types/index.d.ts",
   "files": [
     "src/*.js",
-    "dist/*.js",
-    "types/*.d.ts"
+    "dist/*.js"
   ],
   "keywords": [
     "vue",
@@ -21,23 +19,11 @@
     "components"
   ],
   "scripts": {
-    "dev": "node examples/server.js",
+    "dev": "node examples/config/server.js",
+    "build:doc": "node examples/config/build.js",
     "dev:dist": "rollup -wm -c scripts/rollup.dev.config.js",
-    "build": "node scripts/build.js",
-    "lint": "eslint src test examples",
-    "test": "npm run lint && npm run flow && npm run test:unit && npm run test:e2e && npm run test:types",
-    "flow": "flow check",
-    "test:unit": "jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
-    "test:e2e": "node test/e2e/runner.js",
-    "test:types": "tsc -p types/test",
-    "docs": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "changelog": "conventional-changelog -p angular -r 2 -i CHANGELOG.md -s",
+    "build": "rollup -c scripts/rollup.config.js",
     "release": "bash scripts/release.sh"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verifyCommitMsg.js"
   },
   "lint-staged": {
     "*.{js,vue}": [
@@ -51,18 +37,27 @@
     "@babel/core": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.3",
+    "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-preset-flow-vue": "^1.0.0",
     "buble": "^0.19.7",
+    "chalk": "^2.4.2",
     "css-loader": "^2.1.1",
-    "element-ui": "^2.7.2",
+    "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "express": "^4.16.4",
     "express-urlrewrite": "^1.2.0",
+    "file-loader": "^3.0.1",
+    "fs-extra": "^7.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "lint-staged": "^8.1.5",
+    "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss": "^7.0.14",
     "rollup": "^1.10.1",
+    "rollup-plugin-alias": "^1.5.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-buble": "^0.19.6",
     "rollup-plugin-commonjs": "^9.3.4",
@@ -70,11 +65,14 @@
     "rollup-plugin-eslint": "^5.1.0",
     "rollup-plugin-flow-no-whitespace": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-vue": "^5.0.0",
     "rollup-watch": "^4.3.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
+    "url-loader": "^1.1.2",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.6",
@@ -85,6 +83,8 @@
     "webpack-dev-middleware": "^3.6.2"
   },
   "dependencies": {
+    "element-ui": "^2.7.2",
+    "throttle-debounce": "^2.1.0",
     "vue-codemirror": "^4.0.6"
   }
 }

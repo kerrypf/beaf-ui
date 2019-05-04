@@ -1,0 +1,10 @@
+.CodeMirror{
+    height: unset;
+    .CodeMirror-sizer{
+        padding-top:15px;
+        padding-bottom:15px !important;
+    }
+    &.cm-s-base16-light .CodeMirror-gutters{
+        border-right: 1px solid #ddd;
+    }
+}

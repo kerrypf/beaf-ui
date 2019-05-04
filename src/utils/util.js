@@ -1,8 +1,6 @@
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
-export function noop() {};
-
-export function hasOwn(obj, key) {
+export const hasOwn =(obj, key) => {
   return hasOwnProperty.call(obj, key);
 };
 
@@ -13,7 +11,7 @@ function extend(to, _from) {
   return to;
 };
 
-export function toObject(arr) {
+export const toObject = (arr)=> {
   var res = {};
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]) {
@@ -41,7 +39,7 @@ export const getValueByPath = function(object, prop) {
   return result;
 };
 
-export function getPropByPath(obj, path, strict) {
+export const getPropByPath = (obj, path, strict)=> {
   let tempObj = obj;
   path = path.replace(/\[(\w+)\]/g, '.$1');
   path = path.replace(/^\./, '');

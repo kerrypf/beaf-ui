@@ -1,34 +1,48 @@
-// import ELEMENT from 'element-ui'
-// import VueCodemirror from 'vue-codemirror'
+import ELEMENT from 'element-ui'
+import VueCodemirror from 'vue-codemirror'
 
-// import 'codemirror/lib/codemirror.css'
-// import "./assets/iconfont/iconfont.css";
+// language
+import 'codemirror/mode/vue/vue.js'
 
-import utils from './utils/index.js'
+// active-line.js
+import 'codemirror/addon/selection/active-line.js'
+// styleSelectedText
+import 'codemirror/addon/selection/mark-selection.js'
+import 'codemirror/addon/search/searchcursor.js'
+// highlightSelectionMatches
+import 'codemirror/addon/scroll/annotatescrollbar.js'
+import 'codemirror/addon/search/matchesonscrollbar.js'
+import 'codemirror/addon/search/searchcursor.js'
+import 'codemirror/addon/search/match-highlighter.js'
+// theme css
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/cobalt.css'
+import 'codemirror/theme/base16-dark.css'
+import 'codemirror/theme/base16-light.css'
 
-// import AiAdviceDialog from './components/AiAdviceDialog/index.js'
-// import AiAlert from './components/AiAlert/index.js'
-// import AiRightFlotage from './components/AiRightFlotage/index.js'
-// import AiSideNav from './components/AiSideNav/index.js'
-// import AiTopNav from './components/AiTopNav/index.js'
+import "./assets/iconfont/iconfont.js";
+import "./assets/reset/index.scss";
+
+import _ from 'lodash'
+// import UTIL from 'UTIL'
+// console.log(UTIL, 'utilsutilsutilsutilsutils')
+
+import ALERT from './components/alert/src/packaging.js'
+
 
 import JsonschemaForm from './components/jsonschema-form/index.js'
+import Icon from './components/icon/index.js'
 
 
 const components = [
-  // AiAdviceDialog,
-  // AiAlert,
-  // AiRightFlotage,
-  // AiSideNav,
-  // AiTopNav,
-
-  JsonschemaForm
+  JsonschemaForm,
+  Icon
 ]
 
-// const vendors = [
-//   ELEMENT,
-//   VueCodemirror
-// ]
+const vendors = [
+  ELEMENT,
+  // VueCodemirror
+]
 
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
@@ -37,7 +51,18 @@ const install = function(Vue, opts = {}) {
   vendors.forEach(vendor => {
     Vue.use(vendor);
   });
-  Vue.prototype.$util = utils
+  Vue.use(VueCodemirror, { 
+    options: { 
+      tabSize: 4,
+      mode: 'text/x-vue',
+      theme: 'cobalt',
+      lineNumbers: true,
+      line: true,
+      readOnly: true
+    }
+  })
+  Vue.prototype._=_
+  Vue.prototype.Alert = ALERT
 };
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
