@@ -54,10 +54,10 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - docs
+      - build
       - deploy:
           requires:
-            - docs
+            - build
           filters:
             branches:
               only: master
