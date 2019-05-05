@@ -1,13 +1,11 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>BEAF-UI Examples</title>
-  <!-- <link rel="stylesheet" href="/global.scss"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-  <div id="app"></div>
-  <!-- <script src="/__build__/vendors.chunk.js"></script>
-  <script src="/__build__/app.js"></script> -->
+    <div id="app"></div>
 </body>
-
 </html>

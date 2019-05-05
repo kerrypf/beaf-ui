@@ -75,7 +75,7 @@ export default {
                     description:'DUI平台头部导航公共业务组件'
                 },{
                     name: 'AiJsonSchema',
-                    path: 'ai-jsonshema-form',
+                    path: 'ai-jsonschema-form',
                     label: 'json可视化配置',
                     description:'json数据可视化可编辑表单'
                 }]
@@ -157,7 +157,7 @@ export default {
         .sub-title{
             font-size: 14px;
             color: #5e6d82;
-            line-height: 1.5em;
+            line-height: 30px;
         }
         
     }
