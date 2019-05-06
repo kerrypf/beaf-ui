@@ -1,11 +1,11 @@
 {
   "name": "aife-ui",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "",
-  "main": "dist/beaf-ui.common.js",
-  "module": "dist/beaf-ui.esm.js",
-  "unpkg": "dist/beaf-ui.js",
-  "jsdelivr": "dist/beaf-ui.js",
+  "main": "dist/aife-ui.common.js",
+  "module": "dist/aife-ui.esm.js",
+  "unpkg": "dist/aife-ui.js",
+  "jsdelivr": "dist/aife-ui.js",
   "sideEffects": false,
   "files": [
     "src/*.js",

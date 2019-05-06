@@ -83,7 +83,7 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.esm.js',
-      'beaf-ui': path.resolve(process.cwd(), 'src')
+      'aife-ui': path.resolve(process.cwd(), 'src')
     }
   },
 
@@ -110,7 +110,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       // Also generate a index.html
-      title: "beaf-ui",
+      title: "aife-ui",
       inject: true,
       filename: "index.html",
       template: path.resolve(__dirname,"../index.html.template")

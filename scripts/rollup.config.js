@@ -27,27 +27,27 @@ const resolve = _path => path.resolve(__dirname, '../', _path)
 export default {
     input: resolve('src/index.js'),
     output: [{ // browser dev
-        file: resolve('dist/beaf-ui.js'),
+        file: resolve('dist/aife-ui.js'),
         format: 'umd',
         banner,
-        name: 'BeafUI',
+        name: 'AifeUI',
         env: 'development'
     },{
-        file: resolve('dist/beaf-ui.min.js'),
+        file: resolve('dist/aife-ui.min.js'),
         format: 'umd',
         banner,
-        name: 'BeafUI',
+        name: 'AifeUI',
         env: 'production'
     },{
-        file: resolve('dist/beaf-ui.common.js'),
+        file: resolve('dist/aife-ui.common.js'),
         format: 'cjs',
         banner,
-        name: 'BeafUI',
+        name: 'AifeUI',
     },{
-        file: resolve('dist/beaf-ui.esm.js'),
+        file: resolve('dist/aife-ui.esm.js'),
         format: 'es',
         banner,
-        name: 'BeafUI',
+        name: 'AifeUI',
     }],
     plugins: [
         flow(),
@@ -77,74 +77,3 @@ export default {
         'vue-codemirror'
     ]
 }
-// module.exports = [
-//   // browser dev
-//   {
-//     file: resolve('dist/beaf-ui.js'),
-//     format: 'umd',
-//     env: 'development'
-//   },
-//   {
-//     file: resolve('dist/beaf-ui.min.js'),
-//     format: 'umd',
-//     env: 'production'
-//   },
-//   {
-//     file: resolve('dist/beaf-ui.common.js'),
-//     format: 'cjs'
-//   },
-//   {
-//     file: resolve('dist/beaf-ui.esm.js'),
-//     format: 'es'
-//   }
-// ].map(genConfig)
-
-// function genConfig (opts) {
-//   const config = {
-//     input: {
-//       input: resolve('src/index.js'),
-//       plugins: [
-//         flow(),
-//         vue(),
-//         node(),
-//         // embedCss(),
-//         commonjs(),
-//         replace({
-//           __VERSION__: version
-//         }),
-//         // buble({
-//         //   objectAssign: 'Object.assign',
-//         // })
-//         postcss({
-//             plugins: [autoprefixer, cssnano],
-//             extract: 'dist/css/bundle.css' // 输出路径
-//         }),
-//         babel({
-//           exclude: "node_modules/**",
-//           externalHelpers: true,
-//           runtimeHelpers: true
-//         })
-//       ]
-//     },
-//     output: {
-//       file: opts.file,
-//       format: opts.format,
-//       banner,
-//       name: 'BeafUI'
-//     },
-//     external: [
-//       'vue',
-//       'element-ui',
-//       'vue-codemirror'
-//     ]
-//   }
-
-//   if (opts.env) {
-//     config.input.plugins.unshift(replace({
-//       'process.env.NODE_ENV': JSON.stringify(opts.env)
-//     }))
-//   }
-  
-
-//   return config
-// }

@@ -27,21 +27,21 @@ const resolve = _path => path.resolve(__dirname, '../', _path)
 module.exports = [
   // browser dev
   {
-    file: resolve('dist/beaf-ui.js'),
+    file: resolve('dist/aife-ui.js'),
     format: 'umd',
     env: 'development'
   },
   {
-    file: resolve('dist/beaf-ui.min.js'),
+    file: resolve('dist/aife-ui.min.js'),
     format: 'umd',
     env: 'production'
   },
   {
-    file: resolve('dist/beaf-ui.common.js'),
+    file: resolve('dist/aife-ui.common.js'),
     format: 'cjs'
   },
   {
-    file: resolve('dist/beaf-ui.esm.js'),
+    file: resolve('dist/aife-ui.esm.js'),
     format: 'es'
   }
 ].map(genConfig)
@@ -77,7 +77,7 @@ function genConfig (opts) {
       file: opts.file,
       format: opts.format,
       banner,
-      name: 'BeafUI'
+      name: 'AifeUI'
     },
     external: [
       'vue',

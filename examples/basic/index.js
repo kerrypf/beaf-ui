@@ -7,9 +7,9 @@ import components from './components'
 import 'element-ui/lib/theme-chalk/index.css'
 import '../global.scss'
 
-import beafUI from 'beaf-ui'
+import aifeUI from 'aife-ui'
 
-Vue.use(beafUI)
+Vue.use(aifeUI)
 Vue.use(components)
 new Vue({
     el:'#app',

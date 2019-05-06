@@ -6,7 +6,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('element-ui'), require('vue-codemirror'), require('vue')) :
 	typeof define === 'function' && define.amd ? define(['element-ui', 'vue-codemirror', 'vue'], factory) :
-	(global = global || self, global.BeafUI = factory(global.ELEMENT, global.VueCodemirror, global.Vue));
+	(global = global || self, global.AifeUI = factory(global.ELEMENT, global.VueCodemirror, global.Vue));
 }(this, function (ELEMENT, VueCodemirror, Vue) { 'use strict';
 
 	ELEMENT = ELEMENT && ELEMENT.hasOwnProperty('default') ? ELEMENT['default'] : ELEMENT;
