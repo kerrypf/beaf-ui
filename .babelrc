@@ -1,4 +1,9 @@
 {
-  "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-syntax-dynamic-import"]
+  "presets": ["env", "stage-1"],
+  "plugins": [
+    "syntax-dynamic-import",
+    "syntax-jsx",
+    "transform-decorators-legacy",
+    "transform-vue-jsx",
+  ]
 }
